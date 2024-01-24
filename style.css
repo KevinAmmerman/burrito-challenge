@@ -1,0 +1,137 @@
+/* GLOBAL */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    height: 100svh;
+    background-color: #231F1B;
+}
+
+/* GENERAL */
+
+
+
+/* HEADER */
+
+
+header {
+    background-color: #231F1B;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 64px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.headline {
+    font-size: 1.6rem;
+}
+
+header span {
+    color: white;
+}
+
+.cart_btn {
+    background-image: url(./img/grocery-store.png);
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cart_btn:hover {
+    transform: scale(1.1);
+}
+
+header img {
+    width: 28px;
+    height: 28px;
+}
+
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main img {
+    height: 50svh;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* PRODUCT-LIST & PRODUCTS */
+
+.product__list__container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 2rem;
+    overflow-x: scroll;
+}
+
+.product__container {
+    height: auto;
+    min-width: 500px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    border-top-right-radius: 23px;
+    border-top-left-radius: 23px;
+}
+
+.product__container img {
+    height: 150px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    object-fit: cover;
+}
+
+.product__info__container {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    padding: 1rem;
+}
+
+.product__info__container h2,
+.product__info__container p {
+    margin: 0;
+}
+
+.btn__box {
+    display: flex;
+    align-items: center;
+    padding: .5rem 0;
+    gap: 2rem;
+}
+
+.add__product__btn {
+    border: none;
+    background-color: #ff722e;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 150ms ease-in-out;
+}
+
+.add__product__btn:hover {
+    transform: scale(1.1);
+}
+
+/* SHOPPING-CART */
+
+.shopping_cart_container {
+    width: 500px;
+    height: 100svh;
+}
