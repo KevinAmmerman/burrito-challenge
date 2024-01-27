@@ -4,176 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burrito Bandidos</title>
-    <script src="./modules/cart.class.js" defer></script>
-    <script src="./modules/product.class.js"></script>
+    <title>Burritos Bandidos</title>
+    <script src="./src/modules/cart.class.js" defer></script>
+    <script src="./src/modules/product.class.js"></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="createProduct()">
     <header>
-        <span class="headline">Burrito Bandidos</span>
-        <span>Menu</span>
-        <button class="cart_btn"></button>
+        <a href="index.html"><img class="logo" src="src/img/logo.webp" alt=""></a>
+        <img onclick="openCart()" class="cart__btn" src="src/img/grocery-store.png" alt="">
     </header>
     <main>
-        <img src="./img/header.png" alt="">
-        <section class="product__list__container">
-            <div class="product__container">
-                <img src="./img/beef.png" alt="">
-                <div class="product__info__container">
-                    <h2>Beef Burrito</h2>
-                    <p>Seasoned and cooked beef,
-                        Cooked rice,
-                        Black or pinto beans,
-                        Shredded cheese,
-                        Diced tomatoes,
-                        Chopped onions,
-                        Fresh cilantro,
-                        Salsa or pico de gallo,
-                        Guacamole,
-                        Sour cream,
-                        Large flour tortillas
-                    </p>
-                    <div class="btn__box">
+        <section class="left__container">
+            <img src="src/img/header.png" alt="">
+            <div class="product__list_container">
+                <div class="product__container">
+                    <img class="product__img" src="src/img/beef.png" alt="">
+                    <div class="product__info">
+                        <h2>Beef Burrito</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quam veritatis consequatur
+                            praesentium, ut doloremque commodi necessitatibus.
+                        </p>
+                    </div>
+                    <div class="order__container">
                         <button class="add__product__btn">Add to Cart</button>
-                        <strong>12,80€</strong>
+                        <span id="product__price">12,80€</span>
+                    </div>
+                </div>
+                <div class="product__container">
+                    <img class="product__img" src="src/img/beef.png" alt="">
+                    <div class="product__info">
+                        <h2>Beef Burrito</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quam veritatis consequatur
+                            praesentium, ut doloremque commodi necessitatibus.
+                        </p>
+                    </div>
+                    <div class="order__container">
+                        <button class="add__product__btn">Add to Cart</button>
+                        <span id="product__price">12,80€</span>
+                    </div>
+                </div>
+                <div class="product__container">
+                    <img class="product__img" src="src/img/beef.png" alt="">
+                    <div class="product__info">
+                        <h2>Beef Burrito</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quam veritatis consequatur
+                            praesentium, ut doloremque commodi necessitatibus.
+                        </p>
+                    </div>
+                    <div class="order__container">
+                        <button class="add__product__btn">Add to Cart</button>
+                        <span id="product__price">12,80€</span>
                     </div>
                 </div>
             </div>
-            <div class="product__container">
-                <img src="./img/beef.png" alt="">
-                <div class="product__info__container">
-                    <h2>Beef Burrito</h2>
-                    <p>Seasoned and cooked beef,
-                        Cooked rice,
-                        Black or pinto beans,
-                        Shredded cheese,
-                        Diced tomatoes,
-                        Chopped onions,
-                        Fresh cilantro,
-                        Salsa or pico de gallo,
-                        Guacamole,
-                        Sour cream,
-                        Large flour tortillas
-                    </p>
-                    <div class="btn__box">
-                        <button class="add__product__btn">Add to Cart</button>
-                        <strong>12,80€</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="product__container">
-                <img src="./img/beef.png" alt="">
-                <div class="product__info__container">
-                    <h2>Beef Burrito</h2>
-                    <p>Seasoned and cooked beef,
-                        Cooked rice,
-                        Black or pinto beans,
-                        Shredded cheese,
-                        Diced tomatoes,
-                        Chopped onions,
-                        Fresh cilantro,
-                        Salsa or pico de gallo,
-                        Guacamole,
-                        Sour cream,
-                        Large flour tortillas
-                    </p>
-                    <div class="btn__box">
-                        <button class="add__product__btn">Add to Cart</button>
-                        <strong>12,80€</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="product__container">
-                <img src="./img/beef.png" alt="">
-                <div class="product__info__container">
-                    <h2>Beef Burrito</h2>
-                    <p>Seasoned and cooked beef,
-                        Cooked rice,
-                        Black or pinto beans,
-                        Shredded cheese,
-                        Diced tomatoes,
-                        Chopped onions,
-                        Fresh cilantro,
-                        Salsa or pico de gallo,
-                        Guacamole,
-                        Sour cream,
-                        Large flour tortillas
-                    </p>
-                    <div class="btn__box">
-                        <button class="add__product__btn">Add to Cart</button>
-                        <strong>12,80€</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="product__container">
-                <img src="./img/beef.png" alt="">
-                <div class="product__info__container">
-                    <h2>Beef Burrito</h2>
-                    <p>Seasoned and cooked beef,
-                        Cooked rice,
-                        Black or pinto beans,
-                        Shredded cheese,
-                        Diced tomatoes,
-                        Chopped onions,
-                        Fresh cilantro,
-                        Salsa or pico de gallo,
-                        Guacamole,
-                        Sour cream,
-                        Large flour tortillas
-                    </p>
-                    <div class="btn__box">
-                        <button class="add__product__btn">Add to Cart</button>
-                        <strong>12,80€</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="product__container">
-                <img src="./img/beef.png" alt="">
-                <div class="product__info__container">
-                    <h2>Beef Burrito</h2>
-                    <p>Seasoned and cooked beef,
-                        Cooked rice,
-                        Black or pinto beans,
-                        Shredded cheese,
-                        Diced tomatoes,
-                        Chopped onions,
-                        Fresh cilantro,
-                        Salsa or pico de gallo,
-                        Guacamole,
-                        Sour cream,
-                        Large flour tortillas
-                    </p>
-                    <div class="btn__box">
-                        <button class="add__product__btn">Add to Cart</button>
-                        <strong>12,80€</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="product__container">
-                <img src="./img/beef.png" alt="">
-                <div class="product__info__container">
-                    <h2>Beef Burrito</h2>
-                    <p>Seasoned and cooked beef,
-                        Cooked rice,
-                        Black or pinto beans,
-                        Shredded cheese,
-                        Diced tomatoes,
-                        Chopped onions,
-                        Fresh cilantro,
-                        Salsa or pico de gallo,
-                        Guacamole,
-                        Sour cream,
-                        Large flour tortillas
-                    </p>
-                    <div class="btn__box">
-                        <button class="add__product__btn">Add to Cart</button>
-                        <strong>12,80€</strong>
-                    </div>
-                </div>
-            </div>
+        </section>
+        <section class="right__container">
+
         </section>
     </main>
 </body>
