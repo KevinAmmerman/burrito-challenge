@@ -7,7 +7,7 @@ class Cart {
     discount;
 
     constructor() {
-        this.handleDiscount()
+        
     }
 
     renderProducts() {
@@ -18,6 +18,7 @@ class Cart {
         });
         this.sumUp()
         this.resetCart()
+        this.handleDiscount()
     }
 
     addToCart(i) {
@@ -60,7 +61,7 @@ class Cart {
             subtotal += (p.produkt.price * p.amount);
         })
         this.subtotal = Number(subtotal.toFixed(2));
-        this.total = this.subtotal + this.delivery;
+        this.total = this.discount ? this.addDiscount() : this.subtotal + this.delivery;
         summary.innerHTML = createHTMLforSummary();
         mobileTotal.textContent = `${this.total.toFixed(2).replace('.', ',')}€`;
     }
@@ -79,33 +80,36 @@ class Cart {
         buttons.forEach(b => {
             b.addEventListener('click', d => {
                 this.discount = d.target.attributes[1].value;
+                this.sumUp();
             })
         })
     }
 
-    addDiscount(b) {
-        this.discount = b.target.attributes[1].value;
-    //     switch (discount) {
-    //         case '5':
-    //             this.total = this.total - 5;
-    //             break;
-    //         case '10':
-    //             this.total = this.total - 10;
-    //             break;
-    //         case '20':
-    //             this.total = this.total - 20;
-    //         case '5%':
-    //             this.total = this.total / 100 * 95;
-    //             break;
-    //         case '10%':
-    //             this.total = this.total / 100 * 90;
-    //             break;
-    //         case '20%':
-    //             this.total = this.total / 100 * 80;
-    //         default:
-    //             break;
-    //     }
-    //     this.sumUp();
-    //     console.log(this.total)
+    addDiscount() {
+        const totalWithDelivery = this.subtotal + this.delivery;
+        let totalWithDiscount;
+        switch (this.discount) {
+            case '5':
+                totalWithDiscount = totalWithDelivery - 5;
+                break;
+            case '10':
+                totalWithDiscount = totalWithDelivery - 10;
+                break;
+            case '20':
+                totalWithDiscount = totalWithDelivery - 20;
+                break;
+            case '5%':
+                totalWithDiscount = totalWithDelivery / 100 * 95;
+                break;
+            case '10%':
+                totalWithDiscount = totalWithDelivery / 100 * 90;
+                break;
+            case '20%':
+                totalWithDiscount = totalWithDelivery / 100 * 80;
+                break;
+            default:
+                break;
+        }
+        return totalWithDiscount;
     }
 }
