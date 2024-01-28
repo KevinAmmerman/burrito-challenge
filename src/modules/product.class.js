@@ -6,11 +6,11 @@ class Product {
     img;
     price;
 
-    constructor(name, description, productID, img, price) {
-        this.name = name;
-        this.description = description;
-        this.productID = productID
-        this.img = img;
-        this.price = price;
+    constructor(obj) {
+        this.name = obj.name;
+        this.description = obj.description;
+        this.productID = obj.productID
+        this.img = obj.img;
+        this.price = obj.price;
     }
 }

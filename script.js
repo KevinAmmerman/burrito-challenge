@@ -1,6 +1,7 @@
 const cart = new Cart();
 
 function init() {
+    renderMenu();
     rendertCart();
 }
 
@@ -12,6 +13,15 @@ function openCart() {
 
 function rendertCart() {
     const cart = document.getElementById('cart');
-    cart.innerHTML = '';
     cart.innerHTML = createHTMLforCart();
+}
+
+
+function renderMenu() {
+    const menu = document.getElementById('menu__list');
+    menu.innerHTML = '';
+    products.forEach((p, index) => {
+        let product = new Product(p);
+        menu.innerHTML += createHTMLforProduct(product, index);
+    })
 }
