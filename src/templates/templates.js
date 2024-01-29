@@ -83,7 +83,7 @@ function createHTMLforSummary() {
             <button onclick="cart.applyDiscount(20, true)" class="btn_style">20%</button>
         </div> 
         <div class="summary__row">
-            <button class="checkout__btn btn_style">Pay Order <span>(${total}€)</span></button>
+            <button onclick="submitOrder()" class="checkout__btn btn_style">Pay Order <span>(${total}€)</span></button>
         </div>
     `;
 }

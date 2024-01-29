@@ -8,9 +8,8 @@ class Cart {
     discountApplied = false;
     MIN_PURCHASE_AMOUNT = 10;
 
-    constructor() {
+    constructor() {}
 
-    }
 
     renderProducts() {
         const orderList = document.getElementById('order__list');
@@ -22,13 +21,11 @@ class Cart {
         this.resetCart()
     }
 
+
     addToCart(i) {
         const index = this.getIndexOfProduct(products[i]);
-        if (index !== -1) {
-            this.productList[index].amount++;
-        } else {
-            this.productList.push({ produkt: products[i], amount: 1 });
-        }
+        if (index !== -1) this.productList[index].amount++;
+        else this.productList.push({ produkt: products[i], amount: 1 });
         this.renderProducts();
     }
 
@@ -43,14 +40,11 @@ class Cart {
         this.productList[i].amount++;
         this.renderProducts();
     }
-    
+
 
     decreaseOrder(i) {
-        if (this.productList[i].amount === 1) {
-            this.productList.splice(i, 1);
-        } else {
-            this.productList[i].amount--;
-        }
+        if (this.productList[i].amount === 1) this.productList.splice(i, 1);
+        else this.productList[i].amount--;
         this.renderProducts();
     }
 
@@ -58,10 +52,7 @@ class Cart {
     sumUp() {
         const summary = document.getElementById('cart_summary');
         const mobileTotal = document.getElementById('mobile_total_costs');
-        let subtotal = 0;
-        this.productList.forEach(p => {
-            subtotal += (p.produkt.price * p.amount);
-        })
+        const subtotal = this.productList.reduce((acc, p) => acc + (p.produkt.price * p.amount), 0);
         this.subtotal = Number(subtotal.toFixed(2));
         this.total = this.discountApplied === true ? this.totalWithDiscount + this.delivery : this.subtotal + this.delivery;
         summary.innerHTML = createHTMLforSummary();
@@ -71,9 +62,7 @@ class Cart {
 
     resetCart() {
         const summary = document.getElementById('cart_summary');
-        if (this.productList.length === 0) {
-            summary.innerHTML = createHTMLforEmptyCart();
-        }
+        if (this.productList.length === 0) summary.innerHTML = createHTMLforEmptyCart();
     }
 
 
@@ -91,5 +80,10 @@ class Cart {
             this.discountApplied = true;
             this.sumUp();
         }
+    }
+
+
+    submitOrder() {
+
     }
 }

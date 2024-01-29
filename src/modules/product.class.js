@@ -1,11 +1,5 @@
 class Product {
 
-    name;
-    description;
-    productID;
-    img;
-    price;
-
     constructor(obj) {
         this.name = obj.name;
         this.description = obj.description;

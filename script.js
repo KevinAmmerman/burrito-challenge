@@ -5,6 +5,7 @@ function init() {
     rendertCart();
 }
 
+
 function openCart() {
     const cart = document.querySelector('.right__container')
     cart.classList.toggle('slideup__cart');
