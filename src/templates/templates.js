@@ -83,7 +83,7 @@ function createHTMLforSummary() {
             <button onclick="cart.applyDiscount(20, true)" class="btn_style">20%</button>
         </div> 
         <div class="summary__row">
-            <button onclick="submitOrder()" class="checkout__btn btn_style">Pay Order <span>(${total}€)</span></button>
+            <button onclick="cart.submitOrder()" class="checkout__btn btn_style">Pay Order <span>(${total}€)</span></button>
         </div>
     `;
 }
@@ -94,6 +94,16 @@ function createHTMLforEmptyCart() {
     <div class="empty__cart">
         <h2>Fill your shopping cart</h2>
         <span>Add some delicious dishes from the menu and order your meal.</span>
+    </div>
+    `;
+}
+
+
+function createHTMLforSubmitOrderMsg() {
+    return `
+    <div class="empty__cart">
+        <h2>Thank you for your Order</h2>
+        <span>We will deliver them as soon as possible, enjoy your meal.</span>
     </div>
     `;
 }

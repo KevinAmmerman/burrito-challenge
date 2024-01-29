@@ -1,4 +1,4 @@
-const cart = new Cart();
+let cart;
 
 function init() {
     renderMenu();
@@ -13,8 +13,9 @@ function openCart() {
 
 
 function rendertCart() {
-    const cart = document.getElementById('cart');
-    cart.innerHTML = createHTMLforCart();
+    cart = new Cart();
+    const cartContainer = document.getElementById('cart');
+    cartContainer.innerHTML = createHTMLforCart();
 }
 
 

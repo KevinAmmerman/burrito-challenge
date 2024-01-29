@@ -84,6 +84,12 @@ class Cart {
 
 
     submitOrder() {
-
+        const summary = document.getElementById('cart_summary');
+        const orderList = document.getElementById('order__list');
+        orderList.innerHTML = '';
+        summary.innerHTML = createHTMLforSubmitOrderMsg();
+        setTimeout(() => {
+            rendertCart();
+        }, 4000);
     }
 }
