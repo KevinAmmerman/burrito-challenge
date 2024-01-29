@@ -75,12 +75,12 @@ function createHTMLforSummary() {
             <div><span>${total}</span><span>€</span></div>
         </div>
         <div class="summary__row">
-            <button class="discount__btn btn_style" value="5">5€</button>
-            <button class="discount__btn btn_style" value="10">10€</button>
-            <button class="discount__btn btn_style" value="20">20€</button>
-            <button class="discount__btn btn_style" value="5%">5%</button>
-            <button class="discount__btn btn_style" value="10%">10%</button>
-            <button class="discount__btn btn_style" value="20%">20%</button>
+            <button onclick="cart.applyDiscount(5, false)" class="btn_style">5€</button>
+            <button onclick="cart.applyDiscount(10, false)" class="btn_style">10€</button>
+            <button onclick="cart.applyDiscount(20, false)" class="btn_style">20€</button>
+            <button onclick="cart.applyDiscount(5, true)" class="btn_style">5%</button>
+            <button onclick="cart.applyDiscount(10, true)" class="btn_style">10%</button>
+            <button onclick="cart.applyDiscount(20, true)" class="btn_style">20%</button>
         </div> 
         <div class="summary__row">
             <button class="checkout__btn btn_style">Pay Order <span>(${total}€)</span></button>

@@ -3,11 +3,13 @@ class Cart {
     productList = [];
     subtotal;
     total;
+    totalWithDiscount;
     delivery = 2.50;
-    discount;
+    discountApplied = false;
+    MIN_PURCHASE_AMOUNT = 10;
 
     constructor() {
-        
+
     }
 
     renderProducts() {
@@ -18,7 +20,6 @@ class Cart {
         });
         this.sumUp()
         this.resetCart()
-        this.handleDiscount()
     }
 
     addToCart(i) {
@@ -42,6 +43,7 @@ class Cart {
         this.productList[i].amount++;
         this.renderProducts();
     }
+    
 
     decreaseOrder(i) {
         if (this.productList[i].amount === 1) {
@@ -61,7 +63,7 @@ class Cart {
             subtotal += (p.produkt.price * p.amount);
         })
         this.subtotal = Number(subtotal.toFixed(2));
-        this.total = this.discount ? this.addDiscount() : this.subtotal + this.delivery;
+        this.total = this.discountApplied === true ? this.totalWithDiscount + this.delivery : this.subtotal + this.delivery;
         summary.innerHTML = createHTMLforSummary();
         mobileTotal.textContent = `${this.total.toFixed(2).replace('.', ',')}€`;
     }
@@ -75,41 +77,19 @@ class Cart {
     }
 
 
-    handleDiscount() {
-        const buttons = document.querySelectorAll('.discount__btn');
-        buttons.forEach(b => {
-            b.addEventListener('click', d => {
-                this.discount = d.target.attributes[1].value;
-                this.sumUp();
-            })
-        })
-    }
-
-    addDiscount() {
-        const totalWithDelivery = this.subtotal + this.delivery;
-        let totalWithDiscount;
-        switch (this.discount) {
-            case '5':
-                totalWithDiscount = totalWithDelivery - 5;
-                break;
-            case '10':
-                totalWithDiscount = totalWithDelivery - 10;
-                break;
-            case '20':
-                totalWithDiscount = totalWithDelivery - 20;
-                break;
-            case '5%':
-                totalWithDiscount = totalWithDelivery / 100 * 95;
-                break;
-            case '10%':
-                totalWithDiscount = totalWithDelivery / 100 * 90;
-                break;
-            case '20%':
-                totalWithDiscount = totalWithDelivery / 100 * 80;
-                break;
-            default:
-                break;
+    applyDiscount(discount, inPercent) {
+        if (!this.discountApplied) {
+            if (inPercent) {
+                this.totalWithDiscount = this.subtotal * (1 - discount / 100);
+            } else {
+                this.totalWithDiscount = this.subtotal - discount;
+                if(this.totalWithDiscount < this.MIN_PURCHASE_AMOUNT) {
+                    alert('Your Purchase is to low to add this coupon');
+                    return;
+                }
+            }
+            this.discountApplied = true;
+            this.sumUp();
         }
-        return totalWithDiscount;
     }
 }
