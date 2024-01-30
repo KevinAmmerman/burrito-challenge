@@ -1,18 +1,17 @@
 function createHTMLforCart() {
     return ` 
-                <div class="shopping__cart">
-                    <h2>Shopping Cart</h2>
-                    <div class="order__cart__container">
-                        <div id="order__list"></div> 
-                        <div class="cart__summary__container" id="cart_summary">
-                            <div class="empty__cart">
-                            <h2>Fill your shopping cart</h2>
-                            <span>Add some delicious dishes from the menu and order your meal.</span>
-                            </div>
-                        </div>
-
-                    </div>
+    <div class="shopping__cart">
+        <h2>Shopping Cart</h2>
+        <div class="order__cart__container">
+            <div id="order__list"></div> 
+            <di class="cart__summary__container" id="cart_summary">
+                <div class="empty__cart">
+                <h2>Fill your shopping cart</h2>
+                <span>Add some delicious dishes from the menu and order your meal.</span>
                 </div>
+            </di
+        </div>
+    </div>
     `;
 }
 
@@ -38,13 +37,13 @@ function createHTMLforProduct(product, index) {
 
 
 function createHTMLforProductInCart(product, index) {
-    const price = (product.produkt.price * product.amount).toFixed(2).replace('.', ',');
+    const price = (product.dish.price * product.amount).toFixed(2).replace('.', ',');
     return `
         <div class="product__order_container">
             <div class="order__product_info">
                 <div class="order__info__left">
                     <span>${product.amount}</span>
-                    <span>${product.produkt.name}</span>
+                    <span>${product.dish.name}</span>
                 </div>
                 <span>${price}€</span>
             </div>
