@@ -124,8 +124,6 @@ class Cart {
         const orderList = document.getElementById('order__list');
         orderList.innerHTML = '';
         summary.innerHTML = createHTMLforSubmitOrderMsg();
-        setTimeout(() => {
-            rendertCart();
-        }, 4000);
+        setTimeout(() => rendertCart(), 4000);
     }
 }
